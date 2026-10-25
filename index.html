@@ -1,0 +1,114 @@
+<!doctype html>
+<!--
+  Сторінка «Підписатися на запуск» для біо в TikTok/Instagram/YouTube.
+  Хостинг: публічний репо NeoMurderer/potrohu на GitHub Pages → https://neomurderer.github.io/potrohu/
+  Поруч покласти img/ з store/play/: icon-512.png, uk/feature-graphic.png; і video/grow-uk.mp4 з store/video/.
+  Пошта: Google Форма з одним полем «Email». Вписати її formResponse-адресу й entry.<id> поля нижче (FORM).
+-->
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Потроху · скоро в Google Play</title>
+<meta name="description" content="Трекер звичок, який не сварить: кожен маленький крок робить 3D-кімнату затишнішою. Залиш пошту, і ми напишемо, щойно Потроху вийде в Google Play.">
+<meta property="og:title" content="Потроху: трекер звичок, який не сварить">
+<meta property="og:description" content="Залиш пошту, і ми напишемо, щойно застосунок вийде в Google Play.">
+<meta property="og:image" content="https://neomurderer.github.io/potrohu/img/feature-graphic.png">
+<link rel="icon" href="img/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap">
+<style>
+  :root { --bg: #F3EBDD; --surface: #FFFBF2; --ink: #4A4636; --text: #5E584A; --muted: #6F6852; --line: #EADFC9; --green: #576F4B; --on-green: #FFFBF2; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.55 Nunito, system-ui, sans-serif; padding: 28px max(16px, env(safe-area-inset-right)) 56px max(16px, env(safe-area-inset-left)); }
+  main { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+  h1, h2 { color: var(--ink); margin: 0; font-weight: 800; }
+  h1 { font-size: clamp(28px, 8vw, 38px); line-height: 1.12; }
+  h2 { font-size: 20px; }
+  p { margin: 0; }
+  a { color: var(--green); }
+  .logo { font: 28px Georgia, "Times New Roman", serif; color: var(--ink); }
+  header { display: flex; flex-direction: column; gap: 12px; }
+  video { width: 100%; max-width: 300px; aspect-ratio: 9 / 16; margin: 0 auto; display: block; border-radius: 22px; background: var(--line); object-fit: cover; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+  form { display: flex; flex-direction: column; gap: 10px; }
+  label { font-weight: 700; color: var(--ink); }
+  input[type=email] { font: inherit; padding: 13px 16px; border-radius: 14px; border: 1.5px solid var(--line); background: #fff; color: var(--ink); min-width: 0; }
+  input[type=email]:focus { outline: 3px solid color-mix(in srgb, var(--green) 35%, transparent); border-color: var(--green); }
+  .btn { font: inherit; font-weight: 800; border: 0; border-radius: 999px; padding: 13px 20px; background: var(--green); color: var(--on-green); cursor: pointer; text-align: center; text-decoration: none; }
+  .btn.ghost { background: transparent; color: var(--green); border: 1.5px solid var(--green); }
+  .small { font-size: 14px; color: var(--muted); }
+  .done { font-weight: 700; color: var(--green); }
+  ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+  ol { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px 16px; font-weight: 700; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="logo">потроху.</div>
+    <h1>Трекер звичок, який не сварить</h1>
+    <p>Кожен маленький крок у житті робить затишнішою 3D-кімнату твого персонажа. Пропустив день? Це нормально: тут важливіше повернутися, ніж не зламати серію.</p>
+  </header>
+
+
+  <section class="card" id="subscribe">
+    <h2>Напишемо, щойно вийде</h2>
+    <p>Потроху скоро з’явиться в Google Play для Android. Залиш пошту, і ми надішлемо лист із посиланням на завантаження.</p>
+    <form id="form" method="POST" target="sink">
+      <label for="email">Твоя пошта</label>
+      <input id="email" type="email" required autocomplete="email" inputmode="email" placeholder="name@gmail.com">
+      <button class="btn" type="submit">Хочу знати першим</button>
+    </form>
+    <p class="done" id="done" hidden role="status">Дякуємо! Напишемо, щойно Потроху вийде 🌿</p>
+    <p class="small">Без спаму: лише листи про запуск і великі оновлення. Пошта зберігається в Google Формах розробника й нікому не передається. Відписатися можна у відповідь на будь-який лист.</p>
+  </section>
+  <video src="video/grow-uk.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Кімната в Потроху стає затишнішою з кожною звичкою"></video>
+  <iframe name="sink" hidden title="sink"></iframe>
+
+  <section class="card">
+    <h2>Не хочеш чекати?</h2>
+    <p>Застосунок уже можна спробувати в закритому тесті. Нам дуже допоможе кожен тестер: Google пускає застосунок у магазин лише після 14 днів тесту.</p>
+    <ol>
+      <li>Приєднайся до <a href="https://groups.google.com/g/potrohu-testers">групи тестерів</a> з того самого Google-акаунта, що й на телефоні.</li>
+      <li>Відкрий <a href="https://play.google.com/apps/testing/com.potrohu.app">запрошення в тест</a> і натисни «Стати тестувальником».</li>
+      <li>Встанови Потроху з Google Play.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Що всередині</h2>
+    <ul>
+      <li>Свій 3D-персонаж, кімната й котик, які оживають від твоїх звичок.</li>
+      <li>Монети за кожен крок і крамничка з рослинами, пледами й торшерами.</li>
+      <li>Заморожування серії й режим відпочинку, коли життя пішло не за планом.</li>
+      <li>Без реєстрації й реклами: усі звички й нотатки лишаються на телефоні.</li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="links">
+      <a href="https://t.me/potrohu">Telegram</a>
+      <a href="https://www.tiktok.com/@potrohu.app">TikTok</a>
+      <a href="https://www.instagram.com/potrohu.app/">Instagram</a>
+      <a href="https://www.youtube.com/@potrohu-app">YouTube</a>
+    </p>
+    <p class="small">Зроблено в Україні · <a href="mailto:potrohu.app@gmail.com">potrohu.app@gmail.com</a> · <a href="https://neomurderer.github.io/potrohu-privacy/">Конфіденційність</a></p>
+  </section>
+</main>
+<script>
+  // Google Форма: formResponse-адреса і id поля «Email» (з «Отримати попередньо заповнене посилання»).
+  const FORM = { action: 'https://docs.google.com/forms/d/e/1FAIpQLSdcGeknmxxb98WUcbQl56uQeEdDweYVjbaxs4rE63XYt4QlWQ/formResponse', entry: 'entry.630951441' };
+  const form = document.getElementById('form');
+  form.action = FORM.action;
+  document.getElementById('email').name = FORM.entry;
+  form.addEventListener('submit', () => {
+    // Відповідь форми падає в прихований iframe; показуємо «дякуємо» одразу.
+    setTimeout(() => { form.hidden = true; document.getElementById('done').hidden = false; }, 300);
+  });
+</script>
+</body>
+</html>
